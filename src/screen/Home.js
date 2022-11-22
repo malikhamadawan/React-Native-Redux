@@ -13,12 +13,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const onAdd = () => {
-    const data = {
-      email: email,
-      password: password,
-    };
+    // const data = {
+    //   email: email,
+    //   password: password,
+    // };
 
-    dispatch(incrementActions(data));
+    // dispatch(incrementActions(data));
     navigation.navigate('Dashboard');
   };
 

@@ -1,3 +1,9 @@
-export default {
-  LOGIN: 'LOGIN',
-};
+//getAll Post
+export const GET_ALL_POST_REQUEST = 'GET_ALL_POST_REQUEST';
+export const GET_ALL_POST_SUCCESS = 'GET_ALL_POST_SUCCESS';
+export const GET_ALL_POST_FAILURE = 'GET_ALL_POST_FAILURE';
+
+//Delete post
+export const DELETE_POST_REQUEST = 'DELETE_POST_REQUEST';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
