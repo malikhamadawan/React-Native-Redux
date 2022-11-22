@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Text, Button, TextInput} from 'react-native';
+import {View, Text, Button, TextInput, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
   const onLogin = async () => {
     try {
       if (email?.length > 0 && password?.length > 0) {
-        const user = await auth().signInWithEmailAndPassword(email, password);
+        const user = await auth().sendSignInLinkToEmail(email, password);
         if (user?.user.emailVerified) {
           navigation.navigate('Dashboard');
 
@@ -65,6 +65,21 @@ const Login = () => {
           onLogin();
         }}
       />
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('SignUp');
+        }}>
+        <Text
+          style={{
+            color: 'black',
+            fontSize: 15,
+            textAlign: 'center',
+            marginTop: 10,
+          }}>
+          SignUp
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
