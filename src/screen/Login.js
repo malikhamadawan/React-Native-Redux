@@ -1,25 +1,29 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {decrementActions, incrementActions} from '../redux/actions/actions';
+import auth from '@react-native-firebase/auth';
 
-const Home = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigation = useNavigation();
 
-  const dispatch = useDispatch();
+  const onLogin = async () => {
+    try {
+      if (email?.length > 0 && password?.length > 0) {
+        const user = await auth().signInWithEmailAndPassword(email, password);
+        if (user?.user.emailVerified) {
+          navigation.navigate('Dashboard');
 
-  const onAdd = () => {
-    // const data = {
-    //   email: email,
-    //   password: password,
-    // };
-
-    // dispatch(incrementActions(data));
-    navigation.navigate('Dashboard');
+          console.log('user', user);
+        }
+      } else {
+        alert('Please Verify Your Email');
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
   };
 
   return (
@@ -56,28 +60,13 @@ const Home = () => {
       />
 
       <Button
-        title="Add"
+        title="Login"
         onPress={() => {
-          onAdd();
+          onLogin();
         }}
       />
-
-      <View>
-        <Text
-          style={{
-            color: 'black',
-          }}>
-          {email}
-        </Text>
-        <Text
-          style={{
-            color: 'black',
-          }}>
-          {password}
-        </Text>
-      </View>
     </View>
   );
 };
 
-export default Home;
+export default Login;

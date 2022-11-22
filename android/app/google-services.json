@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "569604680505",
+    "project_id": "fir-link-e8b39",
+    "storage_bucket": "fir-link-e8b39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569604680505:android:6baf6f883ecc00811a96e8",
+        "android_client_info": {
+          "package_name": "com.reduxsaga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569604680505-muqsun4aqqat0mpsv1rqgkocn01fjiqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL5O7obmqwniZu-XBxfBqDc7YQFbmRQcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569604680505-muqsun4aqqat0mpsv1rqgkocn01fjiqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

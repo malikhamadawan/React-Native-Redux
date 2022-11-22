@@ -1,5 +1,5 @@
 import {takeLatest, takeEvery} from 'redux-saga/effects';
-import {BASE_URL, ENDPOINTS, getPostService} from '../../../shared/exporter';
+import {getPostService} from '../../../shared/exporter';
 import * as TYPES from '../../types/types';
 
 export function* showAllPostSaga() {
