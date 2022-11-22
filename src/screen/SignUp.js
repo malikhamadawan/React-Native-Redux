@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Text, Button, TextInput} from 'react-native';
+import {View, Text, Button, TextInput, StyleSheet} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 const SignUp = () => {
@@ -23,8 +23,6 @@ const SignUp = () => {
         alert('Please Verify Your Email');
 
         navigation.replace('Login');
-
-        console.log('user', user);
       } else {
         alert('Please Enter All fields');
       }
@@ -34,21 +32,11 @@ const SignUp = () => {
   };
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        flex: 1,
-        justifyContent: 'center',
-      }}>
+    <View style={styles.mainCOntainer}>
       <TextInput
         placeholder="Enter Email"
         placeholderTextColor={'black'}
-        style={{
-          backgroundColor: 'red',
-          width: '85%',
-          alignSelf: 'center',
-          marginBottom: 16,
-        }}
+        style={styles.inputContainer}
         value={email}
         onChangeText={text => setEmail(text)}
       />
@@ -56,12 +44,7 @@ const SignUp = () => {
       <TextInput
         placeholder="Enter Password"
         placeholderTextColor={'black'}
-        style={{
-          backgroundColor: 'red',
-          width: '85%',
-          alignSelf: 'center',
-          marginBottom: 16,
-        }}
+        style={styles.inputContainer}
         value={password}
         onChangeText={text => setPassword(text)}
       />
@@ -75,5 +58,19 @@ const SignUp = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  mainCOntainer: {
+    backgroundColor: 'white',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  inputContainer: {
+    backgroundColor: 'red',
+    width: '85%',
+    alignSelf: 'center',
+    marginBottom: 16,
+  },
+});
 
 export default SignUp;
